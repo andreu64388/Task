@@ -25,7 +25,7 @@
 3. В файле `appsettings.json` измените строку подключения к базе данных в разделе `ConnectionStrings`. Замените следующую строку:
 
 ```json
-"PostgreSQL": "Server=localhost;Port=5432;Database=TestTask;User Id=postgres;Password=Ghtyuioplm;"
+"PostgreSQL": "Server=YOUR_SERVER;Port=YOUR_PORT;Database=TestTask;User Id=postgres;Password=YOUR_PASSWORD;"
 
 
 
