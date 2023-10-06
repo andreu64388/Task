@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using WebAPi.DAL.DTO;
+using WebAPi.DAL.Entity;
 using WebAPi.DAL.Repositories.Interfaces;
 
 namespace WebApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[SwaggerTag("User management")]
 public class UserController : ControllerBase
 {
     private readonly IUserService _userService;
@@ -20,6 +23,13 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
+    [SwaggerOperation(
+       Summary = "Get a list of users",
+       Description = "This endpoint returns a list of all users.",
+       Tags = new[] { "Users" }
+   )]
+    [SwaggerResponse(200, "List of users", typeof(IEnumerable<UserDto>))]
+    [SwaggerResponse(500, "Internal server error")]
     public async Task<IActionResult> GetUsers(
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 10,
@@ -44,6 +54,14 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [SwaggerOperation(
+    Summary = "Get user by ID",
+    Description = "This endpoint retrieves a user by their ID.",
+    Tags = new[] { "Users" }
+)]
+    [SwaggerResponse(200, "User found", typeof(UserDto))]
+    [SwaggerResponse(404, "User not found")]
+    [SwaggerResponse(500, "Internal server error")]
     public async Task<IActionResult> GetUserById(int id)
     {
         try
@@ -66,6 +84,15 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
+    [SwaggerOperation(
+    Summary = "Create a new user",
+    Description = "This endpoint creates a new user.",
+    Tags = new[] { "Users" }
+)]
+    [SwaggerResponse(200, "User created", typeof(UserDto))]
+    [SwaggerResponse(400, "Bad request")]
+    [SwaggerResponse(409, "User already exists")]
+    [SwaggerResponse(500, "Internal server error")]
     public async Task<IActionResult> CreateUser([FromBody] UserDto user)
     {
         try
@@ -89,6 +116,16 @@ public class UserController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [SwaggerOperation(
+      Summary = "Update user by ID",
+      Description = "This endpoint updates a user by their ID.",
+      Tags = new[] { "Users" }
+  )]
+    [SwaggerResponse(200, "User updated", typeof(UserDto))]
+    [SwaggerResponse(400, "Bad request")]
+    [SwaggerResponse(404, "User not found")]
+    [SwaggerResponse(409, "Conflict - User already exists with the same email")]
+    [SwaggerResponse(500, "Internal server error")]
     public async Task<IActionResult> UpdateUser(int id, [FromBody] UserDto user)
     {
         try
@@ -115,6 +152,14 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [SwaggerOperation(
+        Summary = "Delete user by ID",
+        Description = "This endpoint deletes a user by their ID.",
+        Tags = new[] { "Users" }
+    )]
+    [SwaggerResponse(204, "User deleted")]
+    [SwaggerResponse(404, "User not found")]
+    [SwaggerResponse(500, "Internal server error")]
     public async Task<IActionResult> DeleteUser(int id)
     {
         try
@@ -134,6 +179,14 @@ public class UserController : ControllerBase
     }
 
     [HttpPost("/add-role")]
+    [SwaggerOperation(
+    Summary = "Add a role to a user",
+    Description = "This endpoint adds a role to a user.",
+    Tags = new[] { "Users" }
+)]
+    [SwaggerResponse(200, "Role added successfully")]
+    [SwaggerResponse(400, "Bad request")]
+    [SwaggerResponse(500, "Internal server error")]
     public async Task<IActionResult> AddRoleToUser(RoleDto roleDto)
     {
         try
@@ -144,7 +197,6 @@ public class UserController : ControllerBase
             _logger.LogInformation("Role successfully added to user.");
 
             return Ok("Role successfully added.");
-
         }
         catch (InvalidOperationException ex)
         {
@@ -154,6 +206,13 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("roles")]
+    [SwaggerOperation(
+    Summary = "Get all roles",
+    Description = "This endpoint retrieves a list of all roles.",
+    Tags = new[] { "Users" }
+)]
+    [SwaggerResponse(200, "List of roles", typeof(IEnumerable<Role>))]
+    [SwaggerResponse(500, "Internal server error")]
     public async Task<IActionResult> GetAllRoles()
     {
         try
@@ -169,4 +228,3 @@ public class UserController : ControllerBase
         }
     }
 }
-

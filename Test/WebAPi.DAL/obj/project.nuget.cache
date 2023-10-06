@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "o+FJ7YePUasuhse2xyiYCkkFBhh+V0IANhLeXp0y7P+7IrkFrQlftBSBVuWjXLQ2XcOqubNfDnjOvkklddPX/Q==",
+  "dgSpecHash": "C1mgUD212pVwL+Z3RTTUp0NKvPDgHz8l/9Truee/JwLOOMrqdtDwbJB0EQ3SCPSRBe3m5LVO1xEUfIxLhDfFbA==",
   "success": true,
-  "projectFilePath": "E:\\Sites\\GitTask\\WebAPi.DAL\\WebAPi.DAL.csproj",
+  "projectFilePath": "E:\\Sites\\GitTask\\Test\\WebAPi.DAL\\WebAPi.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andry\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\andry\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.11\\microsoft.entityframeworkcore.7.0.11.nupkg.sha512",

@@ -1033,11 +1033,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Sites\\GitTask\\WebAPi.DAL\\WebAPi.DAL.csproj",
+      "projectUniqueName": "E:\\Sites\\GitTask\\Test\\WebAPi.DAL\\WebAPi.DAL.csproj",
       "projectName": "WebAPi.DAL",
-      "projectPath": "E:\\Sites\\GitTask\\WebAPi.DAL\\WebAPi.DAL.csproj",
+      "projectPath": "E:\\Sites\\GitTask\\Test\\WebAPi.DAL\\WebAPi.DAL.csproj",
       "packagesPath": "C:\\Users\\andry\\.nuget\\packages\\",
-      "outputPath": "E:\\Sites\\GitTask\\WebAPi.DAL\\obj\\",
+      "outputPath": "E:\\Sites\\GitTask\\Test\\WebAPi.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\andry\\AppData\\Roaming\\NuGet\\NuGet.Config",
